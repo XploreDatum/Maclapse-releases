@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>DisplayMovie</title>
+    <link>https://displaymovie.vercel.app/appcast.xml</link>
+    <description>Updates for DisplayMovie</description>
+    <language>en</language>
+    <item>
+      <title>Version 1.0.3</title>
+      <pubDate>Mon, 18 May 2026 05:30:06 +0000</pubDate>
+      <sparkle:version>1</sparkle:version>
+      <sparkle:shortVersionString>1.0.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+        <h3>What's new</h3>
+        <ul>
+          <li>Built-in self-update via Sparkle, with a "Check for Updates…" menubar item and daily background checks.</li>
+          <li>License tab shows your plan details (lifetime, activations used, customer email) once activated; Activate-key form is hidden when licensed.</li>
+        </ul>
+      ]]></description>
+      <enclosure url="https://github.com/XploreDatum/DisplayMovie-releases/releases/download/v1.0.3/DisplayMovie-1.0.3.dmg"
+                 sparkle:edSignature="NjWt5O3y9FV8WQk05SsdcUgOuVEcX13pDOREFZFtXBxpNf7dqVjmcxcf1enbgQSgw0YCQeh5zrVqZlnO68W2BA=="
+                 length="6312545"
+                 type="application/octet-stream" />
+    </item>
+  </channel>
+</rss>
