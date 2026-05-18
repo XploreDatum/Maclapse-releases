@@ -6,21 +6,21 @@
     <description>Updates for DisplayMovie</description>
     <language>en</language>
     <item>
-      <title>Version 1.0.3</title>
-      <pubDate>Mon, 18 May 2026 05:30:06 +0000</pubDate>
+      <title>Version 1.0.4</title>
+      <pubDate>Mon, 18 May 2026 18:43:34 +0000</pubDate>
       <sparkle:version>1</sparkle:version>
-      <sparkle:shortVersionString>1.0.3</sparkle:shortVersionString>
+      <sparkle:shortVersionString>1.0.4</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
-        <h3>What's new</h3>
+        <h3>Fixed</h3>
         <ul>
-          <li>Built-in self-update via Sparkle, with a "Check for Updates…" menubar item and daily background checks.</li>
-          <li>License tab shows your plan details (lifetime, activations used, customer email) once activated; Activate-key form is hidden when licensed.</li>
+          <li><b>Midnight compile now targets the correct day.</b> Previously, if the auto-compile timer fired more than ~60 seconds after midnight (App Nap delay, system load, sleep/wake), the offset to "previous day" silently flipped to the new day's almost-empty folder. The day is now anchored to the <i>scheduled</i> midnight time, so timer delay can no longer drift the day boundary.</li>
+          <li><b>Dashboard no longer butts against the title bar.</b> Added top padding for licensed users so content has breathing room.</li>
         </ul>
       ]]></description>
-      <enclosure url="https://github.com/XploreDatum/DisplayMovie-releases/releases/download/v1.0.3/DisplayMovie-1.0.3.dmg"
-                 sparkle:edSignature="NjWt5O3y9FV8WQk05SsdcUgOuVEcX13pDOREFZFtXBxpNf7dqVjmcxcf1enbgQSgw0YCQeh5zrVqZlnO68W2BA=="
-                 length="6312545"
+      <enclosure url="https://github.com/XploreDatum/DisplayMovie-releases/releases/download/v1.0.4/DisplayMovie-1.0.4.dmg"
+                 sparkle:edSignature="wqK4B3Oz7eeXMueGoiQ62EBIy/Ll+pcU56c/sL4moKgWimXuMgfUwX8zdYCDusQKGCEpOG03ADWBbXM9gDtECg=="
+                 length="6313735"
                  type="application/octet-stream" />
     </item>
   </channel>
