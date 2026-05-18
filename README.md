@@ -1,6 +1,6 @@
-# DisplayMovie · releases & website
+# Maclapse · releases & website
 
-This repo is the **public** target for DisplayMovie's release artifacts and its marketing site.
+This repo is the **public** target for Maclapse's release artifacts and its marketing site.
 
 > Source code for the app itself lives in a separate private repo. This one only ships the binary and the homepage.
 
@@ -25,7 +25,7 @@ The fastest path:
 
 ```bash
 npm i -g vercel       # one-time
-cd DisplayMovie-releases
+cd Maclapse-releases
 vercel                # follow the prompts: link to a Vercel account, project name, etc.
 vercel --prod         # promote to production once happy with the preview
 ```
@@ -44,18 +44,18 @@ Or connect this repo to Vercel from <https://vercel.com/new> for git-push auto-d
 1. **Build & notarize the DMG** (in the source repo):
    ```bash
    TEAM_ID=ABCD123456 Scripts/notarize.sh
-   # → produces build/DisplayMovie-<version>.dmg, signed + notarized + stapled
+   # → produces build/Maclapse-<version>.dmg, signed + notarized + stapled
    ```
 
 2. **Tag and create a GitHub release**:
    ```bash
-   gh release create v0.1.1 build/DisplayMovie-0.1.1.dmg \
-     --repo XploreDatum/DisplayMovie-releases \
-     --title "DisplayMovie v0.1.1" \
+   gh release create v0.1.1 build/Maclapse-0.1.1.dmg \
+     --repo XploreDatum/Maclapse-releases \
+     --title "Maclapse v0.1.1" \
      --notes "See release notes."
    ```
 
-3. **The website updates automatically.** `main.js` resolves the latest DMG via GitHub's API at page load (`/repos/XploreDatum/DisplayMovie-releases/releases/latest`) and rewrites the download button's `href` to point at it. The version chip in the download card updates too.
+3. **The website updates automatically.** `main.js` resolves the latest DMG via GitHub's API at page load (`/repos/XploreDatum/Maclapse-releases/releases/latest`) and rewrites the download button's `href` to point at it. The version chip in the download card updates too.
 
 ## Replacing the CSS mockups with real screenshots
 

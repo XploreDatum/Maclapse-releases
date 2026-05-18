@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DisplayMovie — A timelapse of every day on your Mac.</title>
-  <meta name="description" content="DisplayMovie quietly captures your Mac on your interval, drops idle frames, and stitches the rest into a daily film. Local. Searchable. Ships to YouTube." />
+  <title>Maclapse — A timelapse of every day on your Mac.</title>
+  <meta name="description" content="Maclapse quietly captures your Mac on your interval, drops idle frames, and stitches the rest into a daily film. Local. Searchable. Ships to YouTube." />
   <meta name="theme-color" content="#f5f5f7" />
   <meta name="theme-color" content="#0a0a0c" media="(prefers-color-scheme: dark)" />
 
-  <meta property="og:title" content="DisplayMovie — A timelapse of every day on your Mac." />
+  <meta property="og:title" content="Maclapse — A timelapse of every day on your Mac." />
   <meta property="og:description" content="A quiet, local timelapse of your day. Built for macOS." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://displaymovie.vercel.app" />
-  <meta property="og:image" content="https://displaymovie.vercel.app/og.png" />
+  <meta property="og:url" content="https://maclapse.com" />
+  <meta property="og:image" content="https://maclapse.com/og.png" />
   <meta property="og:image:width" content="1536" />
   <meta property="og:image:height" content="1024" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://displaymovie.vercel.app/og.png" />
+  <meta name="twitter:image" content="https://maclapse.com/og.png" />
 
   <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
   <link rel="icon" type="image/png" sizes="128x128" href="/icon-128.png" />
@@ -45,9 +45,9 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="nav">
-    <a class="brand" href="/" aria-label="DisplayMovie home">
+    <a class="brand" href="/" aria-label="Maclapse home">
       <img class="brand-mark-img" src="/icon-128.png" alt="" width="32" height="32" />
-      <span>DisplayMovie</span>
+      <span>Maclapse</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#capture">Capture</a>
@@ -81,7 +81,7 @@
     <!-- ───────────  HERO  ─────────── -->
     <section class="hero">
       <div class="hero-inner">
-        <span class="kicker">v1.0.4 · Designed for macOS · $19 lifetime</span>
+        <span class="kicker">v1.0.5 · Designed for macOS · $19 lifetime</span>
         <h1>A quiet timelapse of every&nbsp;day on your Mac.</h1>
         <p class="sub">Captures every <em>1 second to 3 hours</em>, drops identical frames, stitches what's left into a daily film. Search visible text. Ship it to YouTube. Stays entirely on your machine.</p>
         <div class="cta">
@@ -91,14 +91,14 @@
           </a>
           <a class="btn link" href="#capture">See what it does <span class="arr">›</span></a>
         </div>
-        <p class="micro">7-day free trial · $19 one-time, lifetime updates, up to 5 Macs · Apple Silicon · macOS 14 Sonoma or later.</p>
+        <p class="micro">3-day free trial · $19 one-time, lifetime updates, up to 5 Macs · Apple Silicon · macOS 14 Sonoma or later.</p>
       </div>
 
       <div class="hero-stage">
         <div class="hero-glow" aria-hidden="true"></div>
         <figure class="hero-shot">
           <img src="screenshots/01-dashboard.png"
-               alt="DisplayMovie Dashboard — sidebar with Overview / Settings / Sharing groups, three stat cards (Frames captured, Active time, Apps seen), captures-by-hour bar chart and top-apps list." />
+               alt="Maclapse Dashboard — sidebar with Overview / Settings / Sharing groups, three stat cards (Frames captured, Active time, Apps seen), captures-by-hour bar chart and top-apps list." />
         </figure>
 
         <aside class="ann ann-1" aria-hidden="true">
@@ -277,7 +277,7 @@
         <div>
           <span class="eyebrow"><span class="eye-dot green"></span> Privacy</span>
           <h2>Your screen <span class="hl green">never leaves your Mac.</span></h2>
-          <p>No telemetry. No analytics. OCR runs locally via Apple Vision. The metadata index is a local SQLite file. Movies live where you tell them to. The <em>only</em> outbound call DisplayMovie ever makes is to YouTube — and only after you explicitly connect.</p>
+          <p>No telemetry. No analytics. OCR runs locally via Apple Vision. The metadata index is a local SQLite file. Movies live where you tell them to. The <em>only</em> outbound call Maclapse ever makes is to YouTube — and only after you explicitly connect.</p>
           <div class="chips">
             <span class="chip">Local Vision OCR</span>
             <span class="chip">SQLite FTS5</span>
@@ -293,15 +293,15 @@
       <div class="dl-card">
         <div class="dl-body">
           <span class="eyebrow"><span class="eye-dot"></span> Download</span>
-          <h2>Try free for 7 days. Buy once.</h2>
+          <h2>Try free for 3 days. Buy once.</h2>
           <p>Signed and notarized for macOS Gatekeeper. Apple Silicon. Lifetime updates on up to 5 Macs.</p>
-          <a class="btn primary lg" id="download-btn" href="https://github.com/XploreDatum/DisplayMovie-releases/releases/latest">
+          <a class="btn primary lg" id="download-btn" href="https://github.com/XploreDatum/Maclapse-releases/releases/latest">
             <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m6 9 6 6 6-6"/><path d="M5 21h14"/></svg>
             Download .dmg
           </a>
           &nbsp;
-          <a class="btn link" href="https://buy.polar.sh/polar_cl_95FcgUWuCKBJL76cpoQvY9eKhdXQ1zGm1LDwu2wrbA1">Buy ($19) <span class="arr">›</span></a>
-          <p class="dl-meta" id="dl-version">v1.0.4 · Apple Silicon · ≈ 5 MB · 7-day trial then $19 one-time</p>
+          <a class="btn link" href="https://buy.polar.sh/polar_cl_jISLRLZeVkL0XsJAeCw9I4AqDX7AumXYzcjqO3IC9HY">Buy ($19) <span class="arr">›</span></a>
+          <p class="dl-meta" id="dl-version">v1.0.5 · Apple Silicon · ≈ 6 MB · 3-day trial then $19 one-time</p>
         </div>
         <dl class="specs">
           <div><dt>Requires</dt><dd>macOS 14 Sonoma or later</dd></div>
@@ -322,7 +322,7 @@
         <details><summary>Why two permission prompts on first launch?</summary><p>macOS gates screen recording twice — a coarse "Screen Recording" toggle in System Settings, plus a per-app dialog asking to "bypass the system picker". The first-launch wizard surfaces both inline.</p></details>
         <details><summary>Intel Macs?</summary><p>Currently Apple Silicon only. The codebase compiles for x86_64 but ScreenCaptureKit's performance on Intel hasn't been tuned, so we don't ship that build yet.</p></details>
         <details><summary>Other upload targets?</summary><p>YouTube is fully implemented in v1.0. Google Drive, Dropbox and S3 destinations are scaffolded in the UI and ship working in v1.1.</p></details>
-        <details><summary>How does the trial work?</summary><p>7 days from first launch, full access to every feature. After that, capture and compile are paused until you paste a license key (Settings → License). Existing captures and movies stay accessible regardless.</p></details>
+        <details><summary>How does the trial work?</summary><p>3 days from first launch, full access to every feature. After that, capture and compile are paused until you paste a license key (Settings → License). Existing captures and movies stay accessible regardless.</p></details>
         <details><summary>Refunds?</summary><p>Yes — 14 days, no questions, via Polar's customer portal.</p></details>
         <details><summary>Updates?</summary><p>Drop the latest signed DMG over the previous one. Settings, screenshots, and movies are preserved across versions. Updates are included for the lifetime of the license.</p></details>
       </div>
@@ -334,7 +334,7 @@
     <div class="foot-inner">
       <div class="brand">
         <img class="brand-mark-img" src="/icon-128.png" alt="" width="26" height="26" />
-        <span>DisplayMovie</span>
+        <span>Maclapse</span>
       </div>
       <nav class="foot-links" aria-label="Footer">
         <a href="#capture">Capture</a>
