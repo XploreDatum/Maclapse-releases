@@ -11,9 +11,21 @@
       ]
     },
     {
-      "source": "/:asset(.+\\.(?:svg|png|jpg|jpeg|webp|woff2|css|js))",
+      "source": "/:asset(.+\\.(?:svg|png|jpg|jpeg|webp|woff2))",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/:asset(.+\\.(?:css|js))",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=60, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/appcast.xml",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=300" }
       ]
     }
   ]

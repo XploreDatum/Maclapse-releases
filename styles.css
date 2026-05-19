@@ -975,18 +975,37 @@ details p em { font-style: italic; }
 /* Screenshot skeleton — shows a soft placeholder while the image loads.
    .shot becomes transparent only once the actual image paints, preventing
    any flash of "no image" or the wrong-theme fallback. */
+/* Both light and dark variants of every screenshot ship in the DOM. They're
+   eagerly cached by the browser, and we just toggle which is visible — so
+   theme switches are instant with zero network round-trip. */
 img.shot {
   background: linear-gradient(110deg, var(--bg-2) 25%, var(--bg-3) 50%, var(--bg-2) 75%);
   background-size: 200% 100%;
   animation: shot-skeleton 1.6s ease-in-out infinite;
   border-radius: 8px;
-  /* Reserve space so layout doesn't jump and the skeleton has the right
-     footprint while the image is loading. */
   aspect-ratio: 1040 / 720;
   display: block;
   width: 100%;
 }
 img.shot.loaded { animation: none; background: none; }
+
+/* Hide the off-theme variant. Two layers of rules:
+     1. Manual override via `html.light` / `html.dark` (toggle button).
+     2. `prefers-color-scheme` for users with no explicit override.
+   The :not(.dark) / :not(.light) qualifiers ensure the system rule defers
+   to the explicit one. */
+html.light .shot-dark,
+html.dark  .shot-light { display: none; }
+@media (prefers-color-scheme: light) {
+  html:not(.dark) .shot-dark  { display: none; }
+}
+@media (prefers-color-scheme: dark) {
+  html:not(.light) .shot-light { display: none; }
+}
+/* In side-by-side layouts where both shots inhabit the same flex/grid
+   cell, the hidden one shouldn't leave behind aspect-ratio space. */
+img.shot[hidden], img.shot.shot-light[style*="display: none"],
+img.shot.shot-dark[style*="display: none"] { aspect-ratio: auto; }
 
 @keyframes shot-skeleton {
   from { background-position: 200% 0; }

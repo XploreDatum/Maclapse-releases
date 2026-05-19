@@ -1,11 +1,9 @@
-// Maclapse · landing page · v6
-
-// ─── Theme toggle (defaults to system; manual override persists) ───
-//     Doubles as the screenshot swapper — every <img data-light="..."> gets
-//     its src flipped to the light-mode asset when the resolved theme is
-//     light, and back to the dark asset otherwise. Resolved theme = explicit
-//     class on <html> > stored preference > system preference.
-(function themeAndScreenshots() {
+// Maclapse · landing page · v7
+//
+// Theme handling is a single class swap on <html> (`dark` / `light`). Both
+// screenshot variants are present in the DOM, and CSS hides the off-theme
+// one — so toggling the theme is instant (no fetch, no JS image work).
+(function theme() {
   const btn = document.getElementById('theme-toggle');
   const root = document.documentElement;
   const mq = window.matchMedia('(prefers-color-scheme: dark)');
@@ -16,46 +14,10 @@
     return mq.matches ? 'dark' : 'light';
   };
 
-  // Cache each screenshot's original (dark) src so we can restore it cleanly.
-  const shots = Array.from(document.querySelectorAll('img[data-light]'));
-  shots.forEach((img) => { img.dataset.dark = img.getAttribute('src'); });
-
-  const applyTheme = () => {
-    const mode = resolvedMode();
-    // True only when the user has explicitly chosen a theme; otherwise we let
-    // the <source media="(prefers-color-scheme: light)"> track the system.
-    let override = null;
-    try { override = localStorage.getItem('theme'); } catch (e) {}
-    const isOverride = override === 'dark' || override === 'light';
-
-    shots.forEach((img) => {
-      const target = mode === 'light' ? img.dataset.light : img.dataset.dark;
-      if (target && img.getAttribute('src') !== target) img.setAttribute('src', target);
-
-      // <picture>'s <source> wins over <img> when its media query matches.
-      // Setting img.src alone is therefore not enough — we must also rewrite
-      // the source's media to either force-match or never-match the user's
-      // explicit choice. When there's no override, restore the original
-      // system-tracking media query.
-      const picture = img.parentElement;
-      if (picture && picture.tagName === 'PICTURE') {
-        const source = picture.querySelector('source');
-        if (source) {
-          if (isOverride) {
-            source.media = mode === 'light' ? 'all' : 'not all';
-          } else {
-            source.media = '(prefers-color-scheme: light)';
-          }
-        }
-      }
-    });
-  };
-
   const setMode = (mode) => {
     root.classList.remove('dark', 'light');
     root.classList.add(mode);
     try { localStorage.setItem('theme', mode); } catch (e) {}
-    applyTheme();
   };
 
   if (btn) {
@@ -64,21 +26,19 @@
     });
   }
 
-  // If user hasn't explicitly chosen, follow the system live.
+  // No manual override → follow the system live.
   mq.addEventListener('change', () => {
     try {
       if (!localStorage.getItem('theme')) {
         root.classList.remove('dark', 'light');
       }
     } catch (e) {}
-    applyTheme();
   });
 
-  applyTheme();
-
-  // Mark each screenshot as `.loaded` once the bytes decode, which stops the
-  // skeleton animation. Use `decode()` when available so we don't toggle the
-  // class until the bitmap is actually ready to paint.
+  // Mark each screenshot `.loaded` after its bytes decode so the skeleton
+  // shimmer stops cleanly. Both light + dark variants are loaded eagerly
+  // in this layout — we don't care which one paints first, just that the
+  // shimmer ends when its own pixels arrive.
   document.querySelectorAll('img.shot').forEach((img) => {
     const markLoaded = () => img.classList.add('loaded');
     if (img.complete && img.naturalWidth > 0) {
