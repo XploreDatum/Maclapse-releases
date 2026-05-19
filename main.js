@@ -22,9 +22,32 @@
 
   const applyTheme = () => {
     const mode = resolvedMode();
+    // True only when the user has explicitly chosen a theme; otherwise we let
+    // the <source media="(prefers-color-scheme: light)"> track the system.
+    let override = null;
+    try { override = localStorage.getItem('theme'); } catch (e) {}
+    const isOverride = override === 'dark' || override === 'light';
+
     shots.forEach((img) => {
       const target = mode === 'light' ? img.dataset.light : img.dataset.dark;
       if (target && img.getAttribute('src') !== target) img.setAttribute('src', target);
+
+      // <picture>'s <source> wins over <img> when its media query matches.
+      // Setting img.src alone is therefore not enough — we must also rewrite
+      // the source's media to either force-match or never-match the user's
+      // explicit choice. When there's no override, restore the original
+      // system-tracking media query.
+      const picture = img.parentElement;
+      if (picture && picture.tagName === 'PICTURE') {
+        const source = picture.querySelector('source');
+        if (source) {
+          if (isOverride) {
+            source.media = mode === 'light' ? 'all' : 'not all';
+          } else {
+            source.media = '(prefers-color-scheme: light)';
+          }
+        }
+      }
     });
   };
 
