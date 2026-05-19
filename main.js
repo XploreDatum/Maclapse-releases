@@ -1,27 +1,45 @@
-// DisplayMovie · landing page · v5
+// Maclapse · landing page · v6
 
 // ─── Theme toggle (defaults to system; manual override persists) ───
-(function themeToggle() {
+//     Doubles as the screenshot swapper — every <img data-light="..."> gets
+//     its src flipped to the light-mode asset when the resolved theme is
+//     light, and back to the dark asset otherwise. Resolved theme = explicit
+//     class on <html> > stored preference > system preference.
+(function themeAndScreenshots() {
   const btn = document.getElementById('theme-toggle');
-  if (!btn) return;
   const root = document.documentElement;
   const mq = window.matchMedia('(prefers-color-scheme: dark)');
 
-  const currentMode = () => {
+  const resolvedMode = () => {
     if (root.classList.contains('dark')) return 'dark';
     if (root.classList.contains('light')) return 'light';
     return mq.matches ? 'dark' : 'light';
+  };
+
+  // Cache each screenshot's original (dark) src so we can restore it cleanly.
+  const shots = Array.from(document.querySelectorAll('img[data-light]'));
+  shots.forEach((img) => { img.dataset.dark = img.getAttribute('src'); });
+
+  const applyTheme = () => {
+    const mode = resolvedMode();
+    shots.forEach((img) => {
+      const target = mode === 'light' ? img.dataset.light : img.dataset.dark;
+      if (target && img.getAttribute('src') !== target) img.setAttribute('src', target);
+    });
   };
 
   const setMode = (mode) => {
     root.classList.remove('dark', 'light');
     root.classList.add(mode);
     try { localStorage.setItem('theme', mode); } catch (e) {}
+    applyTheme();
   };
 
-  btn.addEventListener('click', () => {
-    setMode(currentMode() === 'dark' ? 'light' : 'dark');
-  });
+  if (btn) {
+    btn.addEventListener('click', () => {
+      setMode(resolvedMode() === 'dark' ? 'light' : 'dark');
+    });
+  }
 
   // If user hasn't explicitly chosen, follow the system live.
   mq.addEventListener('change', () => {
@@ -30,7 +48,10 @@
         root.classList.remove('dark', 'light');
       }
     } catch (e) {}
+    applyTheme();
   });
+
+  applyTheme();
 })();
 
 
