@@ -6,20 +6,20 @@
     <description>Updates for Maclapse</description>
     <language>en</language>
     <item>
-      <title>Version 1.0.7</title>
-      <pubDate>Tue, 19 May 2026 16:39:07 +0000</pubDate>
+      <title>Version 1.0.8</title>
+      <pubDate>Tue, 19 May 2026 16:45:35 +0000</pubDate>
       <sparkle:version>1</sparkle:version>
-      <sparkle:shortVersionString>1.0.7</sparkle:shortVersionString>
+      <sparkle:shortVersionString>1.0.8</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
-        <h3>Fixed</h3>
+        <h3>New</h3>
         <ul>
-          <li>Capture interval changes now apply immediately — no pause/resume needed. A single capture also fires ~0.6s after the change so the new cadence is visible right away. Stepper drags are debounced.</li>
+          <li>About → "Get in touch" card with feedback@maclapse.com and support@maclapse.com. Each row has a Copy button and an Email button that opens your mail client with a prefilled subject and version footer.</li>
         </ul>
       ]]></description>
-      <enclosure url="https://github.com/XploreDatum/Maclapse-releases/releases/download/v1.0.7/Maclapse-1.0.7.dmg"
-                 sparkle:edSignature="HGAr7sMzTzrVsvZBtYLOUhFliYS328bI4x4NWZMt2FSdFHvlTzuB06YpdBH3j7cCK9ywihAZTluPoZsxBhWiAg=="
-                 length="6317928"
+      <enclosure url="https://github.com/XploreDatum/Maclapse-releases/releases/download/v1.0.8/Maclapse-1.0.8.dmg"
+                 sparkle:edSignature="CiiLco7GRtrC2F+e9e3JwaPA7wHebkJPxc8iMouVEKKJGg55gC0rutrig1VM0eso5EszYORWk7uSf83ciLOjDw=="
+                 length="6305192"
                  type="application/octet-stream" />
     </item>
   </channel>
