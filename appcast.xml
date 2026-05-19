@@ -6,22 +6,20 @@
     <description>Updates for Maclapse</description>
     <language>en</language>
     <item>
-      <title>Version 1.0.6</title>
-      <pubDate>Tue, 19 May 2026 02:35:56 +0000</pubDate>
+      <title>Version 1.0.7</title>
+      <pubDate>Tue, 19 May 2026 16:39:07 +0000</pubDate>
       <sparkle:version>1</sparkle:version>
-      <sparkle:shortVersionString>1.0.6</sparkle:shortVersionString>
+      <sparkle:shortVersionString>1.0.7</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>Fixed</h3>
         <ul>
-          <li>License tab activations tile now correctly shows <b>This Mac</b> instead of the always-zero count read from a misnamed Polar field.</li>
-          <li>Storage tab subtitle final reference to the old brand updated to "Maclapse".</li>
-          <li>About tab version now reads from the bundle, so it always matches the installed version.</li>
+          <li>Capture interval changes now apply immediately — no pause/resume needed. A single capture also fires ~0.6s after the change so the new cadence is visible right away. Stepper drags are debounced.</li>
         </ul>
       ]]></description>
-      <enclosure url="https://github.com/XploreDatum/Maclapse-releases/releases/download/v1.0.6/Maclapse-1.0.6.dmg"
-                 sparkle:edSignature="1ja8oPotRlXHGnkn4qsLxfvAgYeOVB7+IzJgOih3bM3NNgspPoN1Y8uRUjXKJnRbBAfAoXEK5QGzV8BvSl04Bg=="
-                 length="6316763"
+      <enclosure url="https://github.com/XploreDatum/Maclapse-releases/releases/download/v1.0.7/Maclapse-1.0.7.dmg"
+                 sparkle:edSignature="HGAr7sMzTzrVsvZBtYLOUhFliYS328bI4x4NWZMt2FSdFHvlTzuB06YpdBH3j7cCK9ywihAZTluPoZsxBhWiAg=="
+                 length="6317928"
                  type="application/octet-stream" />
     </item>
   </channel>
