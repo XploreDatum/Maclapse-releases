@@ -971,3 +971,24 @@ details p em { font-style: italic; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0ms !important; transition-duration: 0ms !important; }
 }
+
+/* Screenshot skeleton — shows a soft placeholder while the image loads.
+   .shot becomes transparent only once the actual image paints, preventing
+   any flash of "no image" or the wrong-theme fallback. */
+img.shot {
+  background: linear-gradient(110deg, var(--bg-2) 25%, var(--bg-3) 50%, var(--bg-2) 75%);
+  background-size: 200% 100%;
+  animation: shot-skeleton 1.6s ease-in-out infinite;
+  border-radius: 8px;
+  /* Reserve space so layout doesn't jump and the skeleton has the right
+     footprint while the image is loading. */
+  aspect-ratio: 1040 / 720;
+  display: block;
+  width: 100%;
+}
+img.shot.loaded { animation: none; background: none; }
+
+@keyframes shot-skeleton {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}

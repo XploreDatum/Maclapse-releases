@@ -52,6 +52,21 @@
   });
 
   applyTheme();
+
+  // Mark each screenshot as `.loaded` once the bytes decode, which stops the
+  // skeleton animation. Use `decode()` when available so we don't toggle the
+  // class until the bitmap is actually ready to paint.
+  document.querySelectorAll('img.shot').forEach((img) => {
+    const markLoaded = () => img.classList.add('loaded');
+    if (img.complete && img.naturalWidth > 0) {
+      markLoaded();
+    } else if (typeof img.decode === 'function') {
+      img.decode().then(markLoaded).catch(markLoaded);
+    } else {
+      img.addEventListener('load', markLoaded, { once: true });
+      img.addEventListener('error', markLoaded, { once: true });
+    }
+  });
 })();
 
 
