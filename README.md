@@ -68,3 +68,5 @@ Site source: MIT. The DMG itself is proprietary © XploreDatum.
 ---
 
 Developed with ♥ in Keralam. An [XploreDatum](https://xploredatum.com) project.
+
+<!-- redeploy-trigger 2026-05-20T13:14:05Z -->
